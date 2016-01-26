@@ -76,11 +76,19 @@ sudo apt-get update ; sudo apt-get upgrade -y
 #Instala algumas aplicações bobas do dia a dia
 echo ''
 echo -e "${BRed}[*] INSTALANDO ALGUMAS APLICAÇÕES BOBINHAS"
-sudo apt-get install python python-devel sendmail sendmail-bin nmap ping build-essential cmake libgtkmm-3.0-dev libssl-dev gettext libarchive-dev g++ python-pip libyaml-dev python-dev pip install ecryptfs-utils rsync thunderbird-mozilla-build ruby-dev libpcap-dev nslookup filezilla ettercap wireshark libreoffice nautilus-dropbox gimp
+sudo apt-get install python python-devel sendmail sendmail-bin nmap ping build-essential tor cmake libgtkmm-3.0-dev libssl-dev gettext libarchive-dev g++ python-pip libyaml-dev python-dev pip install ecryptfs-utils rsync thunderbird-mozilla-build firefox-mozilla-build ruby-dev libpcap-dev nslookup filezilla ettercap wireshark libreoffice nautilus-dropbox gimp git -y
 
 #Cria a pasta tmp
 mkdir /tmp/dotfile/
 cd /tmp/dotfile
+mkdir numix; cd numix
+git clone https://github.com/cldx/numix-gtk-theme
+git clone https://github.com/numixproject/numix-icon-theme
+git clone https://github.com/numixproject/numix-icon-theme-circle
+mv numix-gtk-theme /usr/share/themes
+mv numix-icon-theme/Numix/ /usr/share/icons
+mv numix-icon-theme-circle/Numix-Circle/ /usr/share/icons; cd -
+
 
 #Instala o Google Chrome e configura o Mozilla Firefox Devel
 echo ''
@@ -98,9 +106,27 @@ sudo apt-get -f install
 echo ''
 echo -e "${Byel}[*] INSTALANDO O MOZILLA FIREFOX DEVEL"
 cd /opt
+cp firefox/ firefoxold/
 wget https://download-installer.cdn.mozilla.net/pub/firefox/nightly/latest-mozilla-aurora-l10n/firefox-45.0a2.pt-BR.linux-x86_64.tar.bz2
 tar xvf firefox-45.0a2.pt-BR.linux-x86_64.tar.bz2
-sudo apt-get -f install
+
+
+echo '''
+[Desktop Entry]
+Encoding=UTF-8
+Name=Mozilla Firefox
+GenericName=Browser
+Comment=Web Browser
+Exec=firefox %u
+Icon=firefox
+Terminal=false
+X-MultipleArgs=false
+StartupWMClass=Firefox
+Type=Application
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;x-scheme-handler/chrome;video/webm;application/x-xpinstall;
+
+''' >> /usr/share/applications/firefox.desktop
 
 
 echo ''
@@ -113,3 +139,79 @@ echo -e "${Bgre}[*] CRIANDO O USUÁRIO"
 adduser matheus
 adduser matheus sudo
 
+echo ''
+echo -e "${Bgre}[*] INSTALANDO O SPOTIFY"
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
+echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+sudo apt-get update
+sudo apt-get install spotify-client
+
+
+echo ''
+echo -e "${Bgre}[*] CONFIGURANDO O AMBIENTE DE DESENVOLVIMENTO WEB - LAMP"
+sudo apt-get install apache2 apache2-dev php5 php5-mysql mysql-server apache2-threaded-dev libxml2-dev php5-curl php5-cli php5-cgi libcurl4-gnutls-dev liblua5.1-0 liblua5.1-0-dev build-essential php5-cli libghc-pcre-light-dev zip libapache2-mod-security2 libxml2 libxml2-dev libxml2-utils php5-odbc libaprutil1 libaprutil1-dev php5-gd php5-odbc vim
+
+echo ''
+echo -e "${Bgre}[*] CONFIGURANDO O AMBIENTE DE DESENVOLVIMENTO WEB - NETBEANS"
+wget http://download.netbeans.org/netbeans/8.1/final/bundles/netbeans-8.1-php-linux-x64.sh
+chmod +x netbeans-8.1-php-linux-x64.sh
+./netbeans-8.1-php-linux-x64.sh
+
+echo ''
+echo -e "${Bgre}[*] CONFIGURANDO O AMBIENTE DE DESENVOLVIMENTO WEB - MYSQL WORKBENCH"
+sudo apt-get install mysql-workbench
+
+echo ''
+echo -e "${Bgre}[*] CONFIGURANDO O AMBIENTE DE DESENVOLVIMENTO WEB - XDEBUG"
+sudo apt-get install pecl php-pear dh-php5 php5-pecl-http dh-make-php
+sudo pecl install xdebug
+echo '/usr/lib/php5/20131226/xdebug.so' >> /etc/php5/apache2/php.ini
+
+echo ''
+echo -e "${BWhi}[*] PENTESTS AND TOOLS"
+cd /home/matheus/
+git clone https://github.com/msfidelis/MyHackingTools.git
+git clone https://github.com/msfidelis/VHostCreator.git
+git clone https://github.com/msfidelis/Sherlock
+git clone https://github.com/msfidelis/Kill-Router-.git
+git clone https://github.com/msfidelis/Firewalls-Labs.git
+
+cd VHostCreator
+chmod 777 install-vhostcreator.sh ; ./install-vhostcreator.sh
+
+echo ''
+echo -e "${BWhi}[*] BETTERCAP"
+sudo apt-get install ruby-dev libpcap-dev
+sudo gem install bettercap  
+
+echo ''
+echo -e "${BWhi}[*] PYTHON LIBS"
+pip install prettytable Mako pyaml dateutils readline --upgrade
+cd /tmp/dotfile
+wget https://pypi.python.org/packages/source/P/PySocks/PySocks-1.5.6.tar.gz#md5=c825c7c52b2c79dde73cac8d04bd25cb
+tar xvf PySocks-1.5.6.tar.gz  
+chmod 777 PySocks-1.5.6 -R   
+cd PySocks-1.5.6/
+./setup.py build
+./setup.py install 
+
+echo ''
+echo -e "${BWhi}[*] VIRTUALBOX 5.0"
+wget http://download.virtualbox.org/virtualbox/5.0.14/VirtualBox-5.0.14-105127-Linux_amd64.run
+chmod +x VirtualBox-5.0.14-105127-Linux_amd64.run
+./VirtualBox-5.0.14-105127-Linux_amd64.run
+
+echo ''
+echo -e "${BWhi}[*] CONFIGURANDO O AMBIENTE DE DESENVOLVIMENTO PYTHON - ATOM"
+wget https://atom-installer.github.com/v1.4.1/atom-amd64.deb?s=1453749982
+dpkg -i atom-amd64.deb
+
+echo ''
+echo -e "${BWhi}[*] CONFIGURANDO O AMBIENTE DE DESENVOLVIMENTO PYTHON - PYCHARM"
+cd /opt/
+wget https://download.jetbrains.com/python/pycharm-community-5.0.3.tar.gz
+tar xvf pycharm-community-5.0.3.tar.gz
+
+
+echo -e "${BWhi}[*] CONFIGURANDO O AMBIENTE DE DESENVOLVIMENTO PYTHON - DEPENDENCIAS"
+sudo apt-get install python3 python2.7
