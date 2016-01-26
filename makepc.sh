@@ -197,7 +197,8 @@ cd PySocks-1.5.6/
 
 echo ''
 echo -e "${BWhi}[*] VIRTUALBOX 5.0"
-wget http://download.virtualbox.org/virtualbox/5.0.14/VirtualBox-5.0.14-105127-Linux_amd64.run
+wget http://download.virtualbox.org/virtualbox/5.0.14/VirtualBox-5.0.14-105127-Linux_amd64.run]
+sudo apt-get install dkms linux-source linux-headers-amd64
 chmod +x VirtualBox-5.0.14-105127-Linux_amd64.run
 ./VirtualBox-5.0.14-105127-Linux_amd64.run
 
@@ -212,6 +213,15 @@ cd /opt/
 wget https://download.jetbrains.com/python/pycharm-community-5.0.3.tar.gz
 tar xvf pycharm-community-5.0.3.tar.gz
 
-
+echo ''
 echo -e "${BWhi}[*] CONFIGURANDO O AMBIENTE DE DESENVOLVIMENTO PYTHON - DEPENDENCIAS"
 sudo apt-get install python3 python2.7
+
+echo ''
+echo -e "${BWhi}[*] CONFIGURANDO O AMBIENTE DE DESENVOLVIMENTO PYTHON - AUXILIARES"
+pip install mycli
+
+echo ''
+echo -e "${BGre}[*] CONFIGURANDO O AMBIENTE DE TRABALHO - XFCE"
+sudo apt-get install xfce4 conky 
+
