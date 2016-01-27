@@ -155,6 +155,8 @@ echo ''
 echo -e "${Bgre}[*] CONFIGURANDO O AMBIENTE DE DESENVOLVIMENTO WEB - LAMP"
 sudo apt-get install apache2 apache2-dev php5 php5-pecl-http php5-dev php5-mysql mysql-server apache2-threaded-dev libxml2-dev php5-curl php5-cli php5-cgi libcurl4-gnutls-dev liblua5.1-0 liblua5.1-0-dev build-essential php5-cli libghc-pcre-light-dev zip libapache2-mod-security2 libxml2 libxml2-dev libxml2-utils php5-odbc libaprutil1 libaprutil1-dev php5-gd php5-odbc vim
 
+git config --global user.name "Matheus Fidelis"
+git config --global user.email "msfidelis@outlook.com"
 echo ''
 echo -e "${Bgre}[*] CONFIGURANDO O AMBIENTE DE DESENVOLVIMENTO WEB - NETBEANS"
 wget http://download.netbeans.org/netbeans/8.1/final/bundles/netbeans-8.1-php-linux-x64.sh
