@@ -22,6 +22,10 @@ mv /etc/apt/sources.list /etc/apt/sources.list.backup
 echo -e "${BRed}[*] CRIANDO OS REPOSS"
 echo '''
 
+#KALI -ROLLING RELEASE
+deb http://http.kali.org/kali kali-rolling main non-free contrib
+# deb-src http://http.kali.org/kali kali-rolling main non-free contrib
+
 #KALI - REGULAR
 deb http://http.kali.org/kali sana main non-free contrib
 deb http://security.kali.org/kali-security sana/updates main contrib non-free
@@ -71,12 +75,12 @@ sudo gpg --keyserver hkp://keys.gnupg.net --recv-key 7D8D0BF6
 sudo gpg --list-keys --with-fingerprint  7D8D0BF6
 sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com C1289A29
 sudo apt-get update ; sudo apt-get upgrade -y
-
+sudo apt-get dist-upgrade
 
 #Instala algumas aplicações bobas do dia a dia
 echo ''
 echo -e "${BRed}[*] INSTALANDO ALGUMAS APLICAÇÕES BOBINHAS"
-sudo apt-get install python python-devel sendmail sendmail-bin nmap build-essential tor cmake libgtkmm-3.0-dev libssl-dev gettext libarchive-dev g++ python-pip libyaml-dev python-dev ecryptfs-utils rsync thunderbird-mozilla-build firefox-mozilla-build ruby-dev libpcap-dev filezilla ettercap wireshark libreoffice nautilus-dropbox gimp git -y
+sudo apt-get install python sendmail sendmail-bin nmap build-essential tor cmake libgtkmm-3.0-dev libssl-dev gettext libarchive-dev g++ python-pip libyaml-dev python-dev ecryptfs-utils rsync thunderbird-mozilla-build firefox-mozilla-build ruby-dev libpcap-dev filezilla wireshark libreoffice nautilus-dropbox gimp git -y
 
 #Cria a pasta tmp
 mkdir /tmp/dotfile/
@@ -149,7 +153,7 @@ sudo apt-get install spotify-client
 
 echo ''
 echo -e "${Bgre}[*] CONFIGURANDO O AMBIENTE DE DESENVOLVIMENTO WEB - LAMP"
-sudo apt-get install apache2 apache2-dev php5 php5-mysql mysql-server apache2-threaded-dev libxml2-dev php5-curl php5-cli php5-cgi libcurl4-gnutls-dev liblua5.1-0 liblua5.1-0-dev build-essential php5-cli libghc-pcre-light-dev zip libapache2-mod-security2 libxml2 libxml2-dev libxml2-utils php5-odbc libaprutil1 libaprutil1-dev php5-gd php5-odbc vim
+sudo apt-get install apache2 apache2-dev php5 php5-pecl-http php5-dev php5-mysql mysql-server apache2-threaded-dev libxml2-dev php5-curl php5-cli php5-cgi libcurl4-gnutls-dev liblua5.1-0 liblua5.1-0-dev build-essential php5-cli libghc-pcre-light-dev zip libapache2-mod-security2 libxml2 libxml2-dev libxml2-utils php5-odbc libaprutil1 libaprutil1-dev php5-gd php5-odbc vim
 
 echo ''
 echo -e "${Bgre}[*] CONFIGURANDO O AMBIENTE DE DESENVOLVIMENTO WEB - NETBEANS"
@@ -165,7 +169,7 @@ echo ''
 echo -e "${Bgre}[*] CONFIGURANDO O AMBIENTE DE DESENVOLVIMENTO WEB - XDEBUG"
 sudo apt-get install pecl php-pear dh-php5 php5-pecl-http dh-make-php
 sudo pecl install xdebug
-echo '/usr/lib/php5/20131226/xdebug.so' >> /etc/php5/apache2/php.ini
+echo 'zend_extension="/usr/local/php/modules/xdebug.so"' >> /etc/php5/apache2/php.ini
 
 echo ''
 echo -e "${BWhi}[*] PENTESTS AND TOOLS"
