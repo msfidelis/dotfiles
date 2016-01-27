@@ -69,14 +69,14 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A8AA1FAA3F055C03
 sudo wget -q -O - https://www.kali.org/archive-key.asc | gpg --import
 sudo gpg --keyserver hkp://keys.gnupg.net --recv-key 7D8D0BF6
 sudo gpg --list-keys --with-fingerprint  7D8D0BF6
-sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com C1289A29  
+sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com C1289A29
 sudo apt-get update ; sudo apt-get upgrade -y
 
 
 #Instala algumas aplicações bobas do dia a dia
 echo ''
 echo -e "${BRed}[*] INSTALANDO ALGUMAS APLICAÇÕES BOBINHAS"
-sudo apt-get install python python-devel sendmail sendmail-bin nmap ping build-essential tor cmake libgtkmm-3.0-dev libssl-dev gettext libarchive-dev g++ python-pip libyaml-dev python-dev pip install ecryptfs-utils rsync thunderbird-mozilla-build firefox-mozilla-build ruby-dev libpcap-dev nslookup filezilla ettercap wireshark libreoffice nautilus-dropbox gimp git -y
+sudo apt-get install python python-devel sendmail sendmail-bin nmap build-essential tor cmake libgtkmm-3.0-dev libssl-dev gettext libarchive-dev g++ python-pip libyaml-dev python-dev ecryptfs-utils rsync thunderbird-mozilla-build firefox-mozilla-build ruby-dev libpcap-dev filezilla ettercap wireshark libreoffice nautilus-dropbox gimp git -y
 
 #Cria a pasta tmp
 mkdir /tmp/dotfile/
@@ -182,18 +182,18 @@ chmod 777 install-vhostcreator.sh ; ./install-vhostcreator.sh
 echo ''
 echo -e "${BWhi}[*] BETTERCAP"
 sudo apt-get install ruby-dev libpcap-dev
-sudo gem install bettercap  
+sudo gem install bettercap
 
 echo ''
 echo -e "${BWhi}[*] PYTHON LIBS"
 pip install prettytable Mako pyaml dateutils readline --upgrade
 cd /tmp/dotfile
 wget https://pypi.python.org/packages/source/P/PySocks/PySocks-1.5.6.tar.gz#md5=c825c7c52b2c79dde73cac8d04bd25cb
-tar xvf PySocks-1.5.6.tar.gz  
-chmod 777 PySocks-1.5.6 -R   
+tar xvf PySocks-1.5.6.tar.gz
+chmod 777 PySocks-1.5.6 -R
 cd PySocks-1.5.6/
 ./setup.py build
-./setup.py install 
+./setup.py install
 
 echo ''
 echo -e "${BWhi}[*] VIRTUALBOX 5.0"
@@ -223,5 +223,4 @@ pip install mycli
 
 echo ''
 echo -e "${BGre}[*] CONFIGURANDO O AMBIENTE DE TRABALHO - XFCE"
-sudo apt-get install xfce4 conky 
-
+sudo apt-get install xfce4 conky
