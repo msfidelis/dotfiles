@@ -74,6 +74,11 @@ sudo wget -q -O - https://www.kali.org/archive-key.asc | gpg --import
 sudo gpg --keyserver hkp://keys.gnupg.net --recv-key 7D8D0BF6
 sudo gpg --list-keys --with-fingerprint  7D8D0BF6
 sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com C1289A29
+
+#ADICIONA A ARQUITETURA I386
+dpkg --add-architecture i368
+
+#ATUALIZA O SISTEMA
 sudo apt-get update ; sudo apt-get upgrade -y
 sudo apt-get dist-upgrade
 
@@ -101,6 +106,7 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 sudo apt-get -f install
 
+#SKYPE#SKYPE
 echo ''
 echo -e "${Byel}[*] INSTALANDO O SKYPE"
 wget http://download.skype.com/linux/skype-ubuntu-precise_4.3.0.37-1_i386.deb
@@ -154,7 +160,7 @@ dpkg -i libgcrypt11_1.5.0-5+deb7u3_amd64.deb
 
 echo ''
 echo -e "${Bgre}[*] CONFIGURANDO O AMBIENTE DE DESENVOLVIMENTO WEB - LAMP"
-sudo apt-get install apache2 apache2-dev php5 php5-pecl-http php5-dev php5-mysql mysql-server apache2-threaded-dev libxml2-dev php5-curl php5-cli php5-cgi libcurl4-gnutls-dev liblua5.1-0 liblua5.1-0-dev build-essential php5-cli libghc-pcre-light-dev zip libapache2-mod-security2 libxml2 libxml2-dev libxml2-utils php5-odbc libaprutil1 libaprutil1-dev php5-gd php5-odbc vim
+sudo apt-get install apache2 php5 php5-pecl-http php5-dev php5-mysql mysql-server libxml2-dev php5-curl php5-cli php5-cgi libcurl4-gnutls-dev liblua5.1-0 liblua5.1-0-dev build-essential php5-cli libghc-pcre-light-dev zip libapache2-mod-security2 libxml2 libxml2-dev libxml2-utils php5-odbc libaprutil1 libaprutil1-dev php5-gd php5-odbc vim
 
 git config --global user.name "Matheus Fidelis"
 git config --global user.email "msfidelis@outlook.com"
@@ -228,6 +234,3 @@ echo ''
 echo -e "${BWhi}[*] CONFIGURANDO O AMBIENTE DE DESENVOLVIMENTO PYTHON - AUXILIARES"
 pip install mycli
 
-echo ''
-echo -e "${BGre}[*] CONFIGURANDO O AMBIENTE DE TRABALHO - XFCE"
-sudo apt-get install xfce4 conky
