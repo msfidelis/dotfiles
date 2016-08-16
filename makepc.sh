@@ -176,7 +176,7 @@ sudo apt-get install mysql-workbench
 
 echo ''
 echo -e "${Bgre}[*] CONFIGURANDO O AMBIENTE DE DESENVOLVIMENTO WEB - XDEBUG"
-sudo apt-get install pecl php-pear dh-php5 php5-pecl-http dh-make-php
+sudo apt-get install php-pear dh-php5 php5-pecl-http dh-make-php
 sudo pecl install xdebug
 echo 'zend_extension="/usr/local/php/modules/xdebug.so"' >> /etc/php5/apache2/php.ini
 
