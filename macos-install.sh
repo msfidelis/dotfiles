@@ -10,6 +10,8 @@ brew upgrade;
 
 #Instala alguns componentes de dev/essenciais de primeiro momento
 brew install git nmap ;
+git config --global user.name "Matheus Fidelis"
+git config --global user.email "msfidelis@outlook.com"
 
 #Instala o PHP7
 brew tap homebrew/dupes;
