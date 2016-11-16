@@ -2,6 +2,8 @@
 
 #Instala o Homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
+brew update
+brew upgrade
 
 #Instala alguns componentes de dev/essenciais de primeiro momento
 brew install git nmap 
@@ -12,14 +14,36 @@ brew tap homebrew/versions
 brew tap homebrew/homebrew-php
 brew install php70
 
+#Instala o Apache
+brew tap homebrew/apache
+sudo apachectl stop
+sudo launchctl unload -w /System/Library/LaunchDaemons/org.apache.httpd.plist 2>/dev/null
+brew install httpd24 --with-privileged-ports --with-http2
+sudo cp -v /usr/local/Cellar/httpd24/2.4.23_2/homebrew.mxcl.httpd24.plist /Library/LaunchDaemons
+sudo chown -v root:wheel /Library/LaunchDaemons/homebrew.mxcl.httpd24.plist
+sudo chmod -v 644 /Library/LaunchDaemons/homebrew.mxcl.httpd24.plist
+sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.httpd24.plist
+sudo apachectl -k restart
+
+mkdir ../Sites
+mkdir ../Workspace
+
 #Instala o Fish e o Oh My Fish 
 brew install fish; 
 echo "/usr/local/bin/fish" | sudo tee -a /etc/shells;
 chsh -s /usr/local/bin/fish;
-fish_update_completions
+fish;
+fish_update_completions;
 sudo chsh -s /usr/local/bin/fish root;
 curl -L http://get.oh-my.fish | fish;
-omf install bobthefish
+omf install flash;
+omf install bobthefish;
+
+#Instala as fontes adicionais 
+git clone https://github.com/powerline/fonts.git;
+cd fonts/
+./install.sh  
+cd ..
 
 #Instala o Composer
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
