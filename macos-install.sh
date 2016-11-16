@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#Desabilita o Spotlight
+sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
+
 #Instala o Homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
 brew update
