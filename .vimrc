@@ -1,19 +1,29 @@
-syntax on
-set ai
-set omnifunc=phpcomplete#CompletePHP  
-set nu
-colorscheme evolution
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+execute pathogen#infect()
+call pathogen#helptags()
+
+autocmd vimenter * NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+map <C-n> :NERDTreeToggle<CR>
+
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+set mouse=a
+
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+let g:NERDTreeMouseMode=3
+
+set omnifunc=phpcomplete#CompletePH
+set runtimepath^=~/.vim/bundle/ctrlp.vim 
 
 set showcmd
 set showmode
 set wildmenu
-set wildmode=list:longest
-set history=50
 set ruler
 set title
-
-set hlsearch
-set incsearch
-
-set mouse=a
+syntax on
+filetype plugin on  
+set nu
+set ai
