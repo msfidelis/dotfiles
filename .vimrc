@@ -8,8 +8,6 @@ map <C-n> :NERDTreeToggle<CR>
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-set mouse=a
-
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
@@ -18,6 +16,7 @@ let g:NERDTreeMouseMode=3
 set omnifunc=phpcomplete#CompletePH
 set runtimepath^=~/.vim/bundle/ctrlp.vim 
 
+set mouse=a
 set showcmd
 set showmode
 set wildmenu
