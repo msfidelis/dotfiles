@@ -1,0 +1,36 @@
+[user]
+	name = Matheus Fidelis
+	email = msfidelis01@gmail.com
+
+[core]
+	editor = vim
+
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+	ui = true
+	pager = true
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+
+[push]
+	default = matching
+    
+[pull]
+	rebase = true

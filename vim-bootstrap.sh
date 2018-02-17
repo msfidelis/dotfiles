@@ -15,7 +15,7 @@ rm -rf ~/.vimrc;
 
 mkdir -p ~/.vim/{autoload,bundle,plugin,autoload} && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-cp .vimrc ~/.vimrc
+cp vim/.vimrc ~/.vimrc
 
 echo -e "\n${BIGreen} VIM :: INSTALLING NERDTREE ${OFF}\n"
 git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
