@@ -11,7 +11,8 @@ brew upgrade;
 # Instala alguns utilitários
 brew install htop wget terraform gitflow jq;
 sudo easy_install python_pip;
-sudo pip install mdv
+sudo easy_install Pygments;
+sudo pip install mdv;
 
 # Instala fontes
 git clone https://github.com/powerline/fonts.git --depth=1
