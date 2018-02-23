@@ -9,7 +9,7 @@ brew update;
 brew upgrade;
 
 # Instala alguns utilitários
-brew install htop wget terraform gitflow;
+brew install htop wget terraform gitflow jq;
 sudo easy_install python_pip;
 sudo pip install mdv
 
