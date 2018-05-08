@@ -9,7 +9,7 @@ brew update;
 brew upgrade;
 
 # Instala alguns utilitários
-brew install htop wget terraform gitflow jq pwgen;
+brew install htop wget terraform gitflow jq pwgen watch ag ack;
 sudo easy_install python_pip;
 sudo easy_install Pygments;
 sudo pip install mdv;
