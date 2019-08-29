@@ -11,19 +11,16 @@ BIWhite='\033[1;97m'        # White
 
 
 curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh; zsh
-
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting 
-
 git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 
 #Tema
-
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 
 
 #Zshmarks
-
 cd ~/.oh-my-zsh/custom/plugins
 git clone https://github.com/jocelynmallon/zshmarks.git
+
+cp .zshrc  ~/.zshrc
