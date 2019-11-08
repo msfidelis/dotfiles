@@ -9,10 +9,12 @@ brew update;
 brew upgrade;
 
 # Instala alguns utilitários
-brew install htop wget terraform gitflow jq pwgen watch ag ack tree;
+brew install htop wget gitflow jq pwgen watch ag ack tree the_silver_searcher;
 sudo easy_install python_pip;
 sudo easy_install Pygments;
 sudo pip install mdv;
+
+brew install warrensbox/tap/tfswitch;
 
 # Instala fontes
 git clone https://github.com/powerline/fonts.git --depth=1
