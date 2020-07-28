@@ -6,18 +6,49 @@ prompt adam1
 
 setopt histignorealldups sharehistory
 
+# Theme
+ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_MODE="POWERLEVEL9K_MODE='awesome-fontconfig'"
+
+# Plugins
+plugins=( git zsh-syntax-highlighting zsh-autosuggestions zshmarks virtualenv docker docker-compose)
+
+# Golang Path
+export GOROOT=/usr/local/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+export GOPATH=$HOME/go
+
+# MySQL 
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
 
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=1000
-SAVEHIST=1000
+# OhMyZsh
+export ZSH=/Users/matheus/.oh-my-zsh
+export GPG_TTY=$(tty)
+source $ZSH/oh-my-zsh.sh
+
+
+# History
+HISTSIZE=10000
+SAVEHIST=10000
 HISTFILE=~/.zsh_history
 
 # Use modern completion system
 autoload -Uz compinit
 compinit
 
+# Aliases
+alias goto="jump"
+alias s="bookmark"
+alias d="deletemark"
+alias p="showmarks"
+alias l="showmarks"
+alias hcat='pygmentize -f terminal256 -O style=monokai -g'
+alias json='jq .'
+
+# Configs
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
