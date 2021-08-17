@@ -69,7 +69,7 @@ alias json='jq .'
 #CONFIGS
 set -U EDITOR vim
 
-plugins=( git zsh-syntax-highlighting zsh-autosuggestions zshmarks virtualenv docker docker-compose)
+plugins=( git zsh-syntax-highlighting zsh-autosuggestions virtualenv docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -109,3 +109,6 @@ export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+echo "if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi" >> ~/.zshrc 
